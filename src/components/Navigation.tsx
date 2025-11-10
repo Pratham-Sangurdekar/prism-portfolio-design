@@ -19,24 +19,30 @@ const Navigation = () => {
   return (
     <>
       {/* Logo top-left */}
-      <div className="fixed top-6 left-6 md:top-8 md:left-12 z-50">
-        <div className="text-white font-bold text-xl tracking-tight">
-          <div className="text-2xl font-black">PS</div>
-          <div className="text-xs tracking-widest opacity-80">PORTFOLIO</div>
+      <div className="fixed top-8 left-8 md:top-12 md:left-12 z-50">
+        <div className="text-white font-bold tracking-tight">
+          <div className="flex items-center gap-2">
+            <div className="bg-white text-black px-3 py-1.5 font-black text-lg tracking-tighter">
+              PS
+            </div>
+            <div className="text-xs tracking-widest font-light opacity-80">
+              portfolio
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Hamburger menu top-right */}
-      <nav className="fixed top-6 right-6 md:top-8 md:right-12 z-50">
+      <nav className="fixed top-8 right-8 md:top-12 md:right-12 z-50">
         <button
           onClick={toggleMenu}
-          className="flex flex-col gap-1.5 p-3 transition-all duration-300 hover:scale-105"
+          className="flex flex-col gap-1.5 p-2 transition-all duration-300 hover:scale-105"
           style={{ color: "#FFFFFF" }}
           aria-label="Open menu"
         >
-          <span className="w-7 h-0.5 bg-current transition-all" />
-          <span className="w-7 h-0.5 bg-current transition-all" />
-          <span className="w-7 h-0.5 bg-current transition-all" />
+          <span className="w-8 h-0.5 bg-current transition-all" />
+          <span className="w-8 h-0.5 bg-current transition-all" />
+          <span className="w-8 h-0.5 bg-current transition-all" />
         </button>
       </nav>
 

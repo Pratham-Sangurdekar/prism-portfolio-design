@@ -102,12 +102,16 @@ All colors MUST be HSL.
       transform: translateX(0%);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-33.333%);
     }
   }
 
   .animate-marquee {
-    animation: marquee 60s linear infinite;
+    animation: marquee 45s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
   }
 
   /* Bokeh floating animation */
