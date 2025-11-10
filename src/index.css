@@ -48,6 +48,14 @@ All colors MUST be HSL.
     /* Glass morphism */
     --glass-bg: 0 0% 100% / 0.4;
     --glass-border: 0 0% 100% / 0.2;
+
+    /* Hero-specific colors */
+    --hero-primary: #0B0F19;
+    --hero-secondary: #1D2430;
+    --hero-muted: #5B6470;
+    --hero-bullet: #B7C0CC;
+    --hero-accent-blue: #6AA7FF;
+    --hero-accent-purple: #9B7CFF;
   }
 }
 
@@ -100,6 +108,31 @@ All colors MUST be HSL.
 
   .animate-marquee {
     animation: marquee 60s linear infinite;
+  }
+
+  /* Bokeh floating animation */
+  @keyframes float-bokeh {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  /* Hero entrance animation */
+  @keyframes slide-up-fade {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Smooth transitions */

@@ -18,11 +18,14 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 z-50 p-8">
+      <nav className="fixed top-0 right-0 z-50 p-6">
         <button
           onClick={toggleMenu}
-          className="p-3 glass rounded-full hover:scale-105 transition-smooth"
-          aria-label="Toggle menu"
+          className="p-3 glass rounded-full transition-all duration-300 hover:scale-[1.03]"
+          style={{ color: "#0B0F19" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#6AA7FF")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#0B0F19")}
+          aria-label="Open menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
