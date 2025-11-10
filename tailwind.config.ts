@@ -102,6 +102,16 @@ export default {
             transform: "translateX(-50%)",
           },
         },
+        "glow-pulse": {
+          "0%, 100%": {
+            opacity: "0.6",
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: "0.8",
+            transform: "scale(1.05)",
+          },
+        },
         "slide-up-fade": {
           "0%": {
             opacity: "0",
@@ -119,6 +129,7 @@ export default {
         "float-bokeh": "float-bokeh 20s ease-in-out infinite",
         "marquee-scroll": "marquee-scroll 60s linear infinite",
         "slide-up-fade": "slide-up-fade 0.3s ease-out",
+        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
       },
     },
   },

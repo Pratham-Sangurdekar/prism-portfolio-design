@@ -18,16 +18,25 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="fixed top-0 right-0 z-50 p-6">
+      {/* Logo top-left */}
+      <div className="fixed top-6 left-6 md:top-8 md:left-12 z-50">
+        <div className="text-white font-bold text-xl tracking-tight">
+          <div className="text-2xl font-black">PS</div>
+          <div className="text-xs tracking-widest opacity-80">PORTFOLIO</div>
+        </div>
+      </div>
+
+      {/* Hamburger menu top-right */}
+      <nav className="fixed top-6 right-6 md:top-8 md:right-12 z-50">
         <button
           onClick={toggleMenu}
-          className="p-3 glass rounded-full transition-all duration-300 hover:scale-[1.03]"
-          style={{ color: "#0B0F19" }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#6AA7FF")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#0B0F19")}
+          className="flex flex-col gap-1.5 p-3 transition-all duration-300 hover:scale-105"
+          style={{ color: "#FFFFFF" }}
           aria-label="Open menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <span className="w-7 h-0.5 bg-current transition-all" />
+          <span className="w-7 h-0.5 bg-current transition-all" />
+          <span className="w-7 h-0.5 bg-current transition-all" />
         </button>
       </nav>
 

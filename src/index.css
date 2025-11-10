@@ -8,35 +8,35 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Premium Portfolio Design System */
-    --background: 0 0% 97%;
-    --foreground: 0 0% 7%;
+    /* Dark Premium Portfolio Design System */
+    --background: 217 19% 11%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card: 217 19% 15%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 217 19% 15%;
+    --popover-foreground: 0 0% 95%;
 
-    /* Soft blue-violet gradient accent */
-    --primary: 220 70% 65%;
+    /* Blue accent */
+    --primary: 210 90% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 217 19% 20%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 217 19% 25%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 250 60% 75%;
-    --accent-foreground: 0 0% 7%;
+    --accent: 210 90% 65%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 220 70% 65%;
+    --border: 217 19% 25%;
+    --input: 217 19% 25%;
+    --ring: 210 90% 65%;
 
     --radius: 1rem;
 
@@ -46,16 +46,16 @@ All colors MUST be HSL.
     --gradient-end: 0 0% 98%;
 
     /* Glass morphism */
-    --glass-bg: 0 0% 100% / 0.4;
-    --glass-border: 0 0% 100% / 0.2;
+    --glass-bg: 255 255 255 / 0.05;
+    --glass-border: 255 255 255 / 0.1;
 
     /* Hero-specific colors */
-    --hero-primary: #0B0F19;
-    --hero-secondary: #1D2430;
-    --hero-muted: #5B6470;
-    --hero-bullet: #B7C0CC;
-    --hero-accent-blue: #6AA7FF;
-    --hero-accent-purple: #9B7CFF;
+    --hero-primary: #FFFFFF;
+    --hero-secondary: #C5D0DE;
+    --hero-muted: #8A95A5;
+    --hero-bullet: #4A5568;
+    --hero-accent-blue: #60A5FA;
+    --hero-accent-purple: #A78BFA;
   }
 }
 
@@ -132,6 +132,18 @@ All colors MUST be HSL.
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Glow pulse animation */
+  @keyframes glow-pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
     }
   }
 
