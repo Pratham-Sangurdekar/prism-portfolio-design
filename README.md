@@ -1,4 +1,4 @@
-<p align="center"><b>Pratham's Portfolio</b></p>
+<p align="center"><strong style="font-size: 2em;"><b>Pratham's Portfolio</b></strong></p>
 
 A modern, animated personal portfolio website showcasing projects, skills, and professional experience.
 
