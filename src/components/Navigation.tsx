@@ -58,7 +58,11 @@ const Navigation = () => {
         // Default
         setIsDarkBg(false);
       } else if (location.pathname === "/about") {
-        setIsDarkBg(false); // About page is light
+        setIsDarkBg(true); // About page has dark background, so use white icon
+      } else if (location.pathname === "/contact") {
+        setIsDarkBg(true); // Contact page has dark background, so use white icon
+      } else if (location.pathname.startsWith("/project/")) {
+        setIsDarkBg(false); // Project detail pages have light background, so use dark icon
       } else {
         setIsDarkBg(false); // Default to dark icon on light background
       }
@@ -114,7 +118,7 @@ const Navigation = () => {
               <span className="w-8 h-0.5 bg-current transition-all" />
             </>
           ) : (
-            <X className="w-8 h-8" strokeWidth={1.5} />
+            <X className="w-8 h-8 text-white" strokeWidth={1.5} />
           )}
         </button>
       </nav>
@@ -142,9 +146,9 @@ const Navigation = () => {
           </div>
 
           {/* Right side - Menu links and contact info */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-between py-20 pr-20 pl-12 lg:pl-0">
+          <div className="w-full lg:w-1/2 flex flex-col justify-between py-12 md:py-20 px-6 md:pr-20 md:pl-12 lg:pl-0">
             {/* Menu items */}
-            <nav className="flex flex-col justify-center flex-1 space-y-2">
+            <nav className="flex flex-col justify-center flex-1 space-y-1 md:space-y-2">
               {menuItems.map((item, index) => (
                 item.type === "route" ? (
                   <Link
@@ -153,7 +157,7 @@ const Navigation = () => {
                     onClick={toggleMenu}
                     className="text-white font-black leading-tight hover:text-gray-400 transition-colors duration-300"
                     style={{
-                      fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                      fontSize: 'clamp(2rem, 8vw, 4.5rem)',
                       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
                       letterSpacing: '-0.02em',
                       animation: isOpen
@@ -169,7 +173,7 @@ const Navigation = () => {
                     onClick={() => handleNavClick(item)}
                     className="text-white font-black leading-tight hover:text-gray-400 transition-colors duration-300 text-left"
                     style={{
-                      fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+                      fontSize: 'clamp(2rem, 8vw, 4.5rem)',
                       fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
                       letterSpacing: '-0.02em',
                       animation: isOpen
@@ -185,7 +189,7 @@ const Navigation = () => {
 
             {/* Contact info and social links - side by side */}
             <div 
-              className="flex gap-16 items-end"
+              className="flex flex-col md:flex-row gap-6 md:gap-16 items-start md:items-end"
               style={{
                 animation: isOpen ? 'fadeIn 0.8s ease-out 0.6s both' : 'none',
               }}
@@ -196,7 +200,7 @@ const Navigation = () => {
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-white text-sm font-normal hover:text-gray-400 transition-colors"
+                  className="block text-white text-xs md:text-sm font-normal hover:text-gray-400 transition-colors"
                 >
                   Instagram
                 </a>
@@ -204,7 +208,7 @@ const Navigation = () => {
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-white text-sm font-normal hover:text-gray-400 transition-colors"
+                  className="block text-white text-xs md:text-sm font-normal hover:text-gray-400 transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -212,10 +216,10 @@ const Navigation = () => {
 
               {/* Right - Contact Details */}
               <div className="space-y-1">
-                <p className="text-white text-sm font-normal">
+                <p className="text-white text-xs md:text-sm font-normal">
                   +91-8657305445
                 </p>
-                <p className="text-white text-sm font-normal">
+                <p className="text-white text-xs md:text-sm font-normal break-all">
                   pratham.savi0412@gmail.com
                 </p>
               </div>

@@ -164,113 +164,6 @@ const Hero = () => {
         }
       `}</style>
 
-      {/* Robot Container with Terminal Window */}
-      <div 
-        className="absolute z-20 block robot-container"
-        style={{
-          bottom: '80px',
-          right: '-10px',
-        }}
-      >
-        {/* Media query styles for responsive sizing */}
-        <style>{`
-          .robot-container {
-            width: 180px;
-            height: 180px;
-          }
-          
-          @media (min-width: 768px) {
-            .robot-container {
-              width: 700px !important;
-              height: 700px !important;
-              bottom: -50px !important;
-              right: -50px !important;
-            }
-          }
-        `}</style>
-        {/* Terminal Window - Responsive positioning */}
-        <div 
-          className="chat-bubble absolute cursor-pointer"
-          style={{
-            bottom: '140px',
-            right: '5px',
-            zIndex: 25,
-          }}
-          onClick={handleResumeDownload}
-        >
-          <style>{`
-            @media (min-width: 1024px) {
-              .chat-bubble {
-                bottom: 300px !important;
-                right: 620px !important;
-              }
-            }
-          `}</style>
-          <div 
-            className="bg-[#1e1e1e] rounded-lg shadow-2xl border border-[#3e3e3e] overflow-hidden w-[220px] lg:w-[320px]"
-          >
-            {/* Terminal Header */}
-            <div className="bg-[#2d2d2d] px-2 py-1.5 lg:px-3 lg:py-2 flex items-center gap-2 border-b border-[#3e3e3e]">
-              <div className="flex gap-1.5">
-                <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-[#ff5f56]"></div>
-                <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-[#ffbd2e]"></div>
-                <div className="w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-[#27c93f]"></div>
-              </div>
-              <span className="text-[#8e8e8e] text-[10px] lg:text-xs ml-2 font-mono">resume.sh</span>
-            </div>
-            
-            {/* Terminal Content */}
-            <div className="p-2 lg:p-4 font-mono text-[10px] lg:text-sm">
-              <div className="flex items-start gap-1 lg:gap-2 mb-1 lg:mb-2">
-                <span className="text-[#4ec9b0]">$</span>
-                <span className="text-[#ce9178]">./get_resume.sh</span>
-              </div>
-              <div className="text-[#d4d4d4] leading-relaxed">
-                <p className="mb-0.5 lg:mb-1">
-                  <span className="text-[#569cd6]">keep scrolling</span>
-                  <span className="text-[#d4d4d4]"> or </span>
-                </p>
-                <p>
-                  <span className="text-[#4ec9b0]">click me</span>
-                  <span className="text-[#d4d4d4]"> to get the </span>
-                  <span className="text-[#ce9178]">resume</span>
-                </p>
-              </div>
-              <div className="flex items-center gap-1 mt-2 lg:mt-3">
-                <span className="text-[#4ec9b0]">$</span>
-                <span className="animate-pulse text-[#d4d4d4]">▊</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Spline 3D Robot */}
-        <div className="relative w-full h-full overflow-hidden pointer-events-auto">
-          <iframe 
-            src='https://my.spline.design/genkubgreetingrobot-1mb586YLhBwFfiawPSXkU9tL/' 
-            frameBorder='0' 
-            width='100%' 
-            height='100%'
-            loading="lazy"
-            className="spline-iframe"
-            style={{ 
-              border: 'none',
-              pointerEvents: 'none',
-              transform: 'translate(15%, -15%) !important',
-            }}
-          />
-          <style dangerouslySetInnerHTML={{__html: `
-            @media (max-width: 767px) {
-              .spline-iframe {
-                width: 190% !important;
-                height: 150% !important;
-                transform: translate(-15%, -10%) !important;
-              }
-            }
-          `}} />
-        </div>
-      </div>
-
       {/* Social Media Links - Top Left */}
       <div className="absolute top-6 left-6 md:top-8 md:left-8 lg:left-16 xl:left-24 z-30 flex items-center gap-4 md:gap-6">
         <a 
@@ -308,6 +201,103 @@ const Hero = () => {
         </a>
       </div>
 
+      {/* Robot Container with Terminal Window - Desktop only (absolute positioned) */}
+      <div 
+        className="hidden md:block absolute z-20 robot-container"
+        style={{
+          bottom: '-100px',
+          right: '-70px',
+        }}
+      >
+        {/* Media query styles for responsive sizing */}
+        <style>{`
+          .robot-container {
+            width: 500px;
+            height: 500px;
+          }
+          
+          @media (min-width: 1024px) {
+            .robot-container {
+              width: 550px;
+              height: 550px;
+              right: 40px;
+            }
+          }
+          
+          @media (min-width: 1280px) {
+            .robot-container {
+              width: 600px;
+              height: 600px;
+              right: 60px;
+            }
+          }
+        `}</style>
+        
+        {/* Terminal Window - Desktop positioning */}
+        <div 
+          className="chat-bubble absolute cursor-pointer"
+          style={{
+            bottom: '400px',
+            left: '-200px',
+            zIndex: 25,
+          }}
+          onClick={handleResumeDownload}
+        >
+          <div 
+            className="bg-[#1e1e1e] rounded-lg shadow-2xl border border-[#3e3e3e] overflow-hidden w-[320px]"
+          >
+            {/* Terminal Header */}
+            <div className="bg-[#2d2d2d] px-3 py-2 flex items-center gap-2 border-b border-[#3e3e3e]">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+              </div>
+              <span className="text-[#8e8e8e] text-xs ml-2 font-mono">resume.sh</span>
+            </div>
+            
+            {/* Terminal Content */}
+            <div className="p-4 font-mono text-sm">
+              <div className="flex items-start gap-2 mb-2">
+                <span className="text-[#4ec9b0]">$</span>
+                <span className="text-[#ce9178]">./get_resume.sh</span>
+              </div>
+              <div className="text-[#d4d4d4] leading-relaxed">
+                <p className="mb-1">
+                  <span className="text-[#569cd6]">keep scrolling</span>
+                  <span className="text-[#d4d4d4]"> or </span>
+                </p>
+                <p>
+                  <span className="text-[#4ec9b0]">click me</span>
+                  <span className="text-[#d4d4d4]"> to get the </span>
+                  <span className="text-[#ce9178]">resume</span>
+                </p>
+              </div>
+              <div className="flex items-center gap-1 mt-3">
+                <span className="text-[#4ec9b0]">$</span>
+                <span className="animate-pulse text-[#d4d4d4]">▊</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Spline 3D Robot */}
+        <div className="relative w-full h-full overflow-hidden pointer-events-auto">
+          <iframe 
+            src='https://my.spline.design/genkubgreetingrobot-1mb586YLhBwFfiawPSXkU9tL/' 
+            frameBorder='0' 
+            width='100%' 
+            height='100%'
+            loading="lazy"
+            style={{ 
+              border: 'none',
+              pointerEvents: 'none',
+              transform: 'translate(15%, -15%)',
+            }}
+          />
+        </div>
+      </div>
+
       {/* Main content container */}
       <div className="relative z-10 flex-1 flex flex-col px-6 md:px-8 lg:px-16 xl:px-24 pt-24 md:pt-28 pb-8">
         {/* Hero content grid */}
@@ -328,7 +318,35 @@ const Hero = () => {
               <br />
               SANGURDEKAR
             </h1>
-            <p>⚲ Mumbai, India, 20 y/o, Student.</p>
+            <p>⚲ Mumbai, India, 
+            <br /> 
+            20 y/o, Student.</p>
+
+            {/* Professional details - visible on mobile, hidden on desktop (shown in right column on desktop) */}
+            <div className="md:hidden flex flex-col items-start space-y-0.5 mt-6 mb-6 animate-slide-up-fade" style={{ animationDelay: "0.25s", animationFillMode: "backwards" }}>
+              <div className="text-left space-y-0.5 mb-2">
+                <p className="text-xs font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                  Rising Innovator
+                </p>
+                <p className="text-xs font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                  AI Engineer | Developer
+                </p>
+              </div>
+              <div className="text-left space-y-0.5">
+                <p className="text-xs font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                  Full-Stack Development
+                </p>
+                <p className="text-xs font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                  Machine Learning
+                </p>
+                <p className="text-xs font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                  System Architecture
+                </p>
+                <p className="text-xs font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                  Business Strategy
+                </p>
+              </div>
+            </div>
 
             <div
               className="text-sm md:text-[15px] leading-relaxed max-w-[520px] animate-slide-up-fade pr-4 md:pr-0"
@@ -379,6 +397,70 @@ const Hero = () => {
                 </div>
               </div>
             
+            {/* Robot Container with Terminal Window - Mobile only, shown after About.Me */}
+            <div className="md:hidden relative z-10 mt-8 mb-8">
+              {/* Robot and Resume Terminal Container */}
+              <div className="relative w-full flex flex-col items-center">
+                {/* Spline 3D Robot */}
+                <div className="relative w-[180px] h-[180px] overflow-hidden">
+                  <iframe 
+                    src='https://my.spline.design/genkubgreetingrobot-1mb586YLhBwFfiawPSXkU9tL/' 
+                    frameBorder='0' 
+                    width='190%' 
+                    height='150%'
+                    loading="lazy"
+                    style={{ 
+                      border: 'none',
+                      pointerEvents: 'none',
+                      transform: 'translate(-15%, -10%)',
+                    }}
+                  />
+                </div>
+
+                {/* Resume Terminal - positioned above robot */}
+                <div 
+                  className="chat-bubble cursor-pointer -mt-4"
+                  onClick={handleResumeDownload}
+                >
+                  <div 
+                    className="bg-[#1e1e1e] rounded-lg shadow-2xl border border-[#3e3e3e] overflow-hidden w-[220px]"
+                  >
+                    {/* Terminal Header */}
+                    <div className="bg-[#2d2d2d] px-2 py-1.5 flex items-center gap-2 border-b border-[#3e3e3e]">
+                      <div className="flex gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-[#ff5f56]"></div>
+                        <div className="w-2 h-2 rounded-full bg-[#ffbd2e]"></div>
+                        <div className="w-2 h-2 rounded-full bg-[#27c93f]"></div>
+                      </div>
+                      <span className="text-[#8e8e8e] text-[10px] ml-2 font-mono">resume.sh</span>
+                    </div>
+                    
+                    {/* Terminal Content */}
+                    <div className="p-2 font-mono text-[10px]">
+                      <div className="flex items-start gap-1 mb-1">
+                        <span className="text-[#4ec9b0]">$</span>
+                        <span className="text-[#ce9178]">./get_resume.sh</span>
+                      </div>
+                      <div className="text-[#d4d4d4] leading-relaxed">
+                        <p className="mb-0.5">
+                          <span className="text-[#569cd6]">keep scrolling</span>
+                          <span className="text-[#d4d4d4]"> or </span>
+                        </p>
+                        <p>
+                          <span className="text-[#4ec9b0]">click me</span>
+                          <span className="text-[#d4d4d4]"> to get the </span>
+                          <span className="text-[#ce9178]">resume</span>
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1 mt-2">
+                        <span className="text-[#4ec9b0]">$</span>
+                        <span className="animate-pulse text-[#d4d4d4]">▊</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Mobile Resume Button - Hidden since terminal window is now visible on mobile */}
             {/* 
@@ -395,26 +477,23 @@ const Hero = () => {
           </div>
 
           {/* Right side - Professional details */}
-          <div className="flex flex-col items-start md:items-end space-y-0.5 mt-4 md:mt-8 mb-8 md:mb-0 animate-slide-up-fade" style={{ animationDelay: "0.3s", animationFillMode: "backwards" }}>
+          <div className="hidden md:flex flex-col items-start md:items-end space-y-0.5 mt-4 md:mt-8 mb-8 md:mb-0 animate-slide-up-fade" style={{ animationDelay: "0.3s", animationFillMode: "backwards" }}>
             <div className="text-left md:text-right space-y-0.5 mb-3">
-              <p className="text-sm md:text-[17px] font-normal text-[#d1d5db] tracking-wide leading-relaxed">
-                Rising Innovator
-              </p>
-              <p className="text-sm md:text-[17px] font-normal text-[#d1d5db] tracking-wide leading-relaxed">
-                AI Engineer | Developer
+              <p className="text-xs md:text-[17px] font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
+                Rising Innovator | Developer
               </p>
             </div>
             <div className="text-left md:text-right space-y-0.5">
-              <p className="text-sm md:text-[17px] font-normal text-[#d1d5db] tracking-wide leading-relaxed">
+              <p className="text-xs md:text-[17px] font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
                 Full-Stack Development
               </p>
-              <p className="text-sm md:text-[17px] font-normal text-[#d1d5db] tracking-wide leading-relaxed">
+              <p className="text-xs md:text-[17px] font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
                 Machine Learning
               </p>
-              <p className="text-sm md:text-[17px] font-normal text-[#d1d5db] tracking-wide leading-relaxed">
+              <p className="text-xs md:text-[17px] font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
                 System Architecture
               </p>
-              <p className="text-sm md:text-[17px] font-normal text-[#d1d5db] tracking-wide leading-relaxed">
+              <p className="text-xs md:text-[17px] font-normal text-[#d4d4d4ff] tracking-wide leading-relaxed">
                 Business Strategy
               </p>
             </div>
@@ -423,8 +502,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom tech stack marquee */}
-      <div className="relative z-10 pb-0 overflow-hidden bg-black/10">
-        <div className="py-8 border-t border-white/[0.06]">
+      <div className="relative z-10 p-8 overflow-hidden ">
           <div className="flex whitespace-nowrap animate-marquee">
             {[...techStack, ...techStack].map((tech, index) => (
               <div
@@ -465,7 +543,6 @@ const Hero = () => {
                   )}
                   {tech === "Flask" && (
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
-                      <path d="M2.149 0L9.937 19.144 0 24h11.443l-6.87-10.86L13.52 0zm19.702 0h-3.028l-2.975 6.012 2.975 7.525L24 4.468V0z"/>
                     </svg>
                   )}
                   {tech === "FastAPI" && (
@@ -535,7 +612,7 @@ const Hero = () => {
                     fontSize: "clamp(18px, 2.2vw, 28px)",
                     fontWeight: 1000,
                     color: "#ffffffa3",
-                    textTransform: "uppercase",
+                    
                     letterSpacing: "0.05em",
                     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, Times New Roman, serif",
                   }}
@@ -546,7 +623,6 @@ const Hero = () => {
             ))}
           </div>
         </div>
-      </div>
     </section>
   );
 };

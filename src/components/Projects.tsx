@@ -32,26 +32,26 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: "Mobile App",
+      title: "Sales-Forecasting WebApp",
       category: "Mobile Development",
-      tags: ["Flutter", "Design"],
+      tags: ["Web-Design", "Python", "Data Science"],
       image: project4,
-      slug: "mobile-app",
+      slug: "sales-forecasting-webapp",
     },
   ];
 
   return (
-    <section id="projects" className="bg-[#e8e8e8] py-8 md:py-12 px-4 md:px-6">
-      <div className="w-full">
+    <section id="projects" className="bg-[#e8e8e8] py-8 md:py-12 px-4 md:px-6 lg:px-8">
+      <div className="w-full max-w-[1600px] mx-auto">
         {/* Black Rounded Container */}
-        <div className="bg-[#1a1a1a] rounded-[30px] md:rounded-[50px] p-8 md:p-12 lg:p-16">
+        <div className="bg-[#1a1a1a] rounded-[20px] md:rounded-[50px] p-6 md:p-12 lg:p-16">
           {/* Header */}
-          <div className="mb-12 md:mb-16 flex items-start justify-between">
+          <div className="mb-8 md:mb-16 flex items-start justify-between">
             <div>
               <h2 
-                className="font-black leading-[0.85] text-white mb-4"
+                className="font-black leading-[0.85] text-white mb-2 md:mb-4"
                 style={{
-                  fontSize: 'clamp(60px, 10vw, 120px)',
+                  fontSize: 'clamp(40px, 10vw, 120px)',
                   letterSpacing: '-0.02em',
                 }}
               >
@@ -59,7 +59,7 @@ const Projects = () => {
                 <br />
                 WORK
               </h2>
-              <p className="text-sm text-white/60 uppercase tracking-wider mt-4">
+              <p className="text-xs md:text-sm text-white/60 uppercase tracking-wider mt-2 md:mt-4">
                 LATEST WORK
               </p>
             </div>
@@ -78,12 +78,12 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8">
             {projects.map((project, index) => (
               <Link
                 key={project.id}
                 to={`/project/${project.slug}`}
-                className="group relative bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-white rounded-xl md:rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
                 }}
@@ -99,26 +99,26 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 md:p-8">
+                <div className="p-4 md:p-8">
                   {/* Dots Indicator */}
-                  <div className="flex gap-2 mb-4">
-                    <div className={`w-2 h-2 rounded-full ${index === 0 ? 'bg-green-500' : 'bg-gray-300'}`} />
-                    <div className={`w-2 h-2 rounded-full ${index === 1 ? 'bg-green-500' : 'bg-gray-300'}`} />
-                    <div className={`w-2 h-2 rounded-full ${index === 2 ? 'bg-green-500' : 'bg-gray-300'}`} />
-                    <div className={`w-2 h-2 rounded-full ${index === 3 ? 'bg-green-500' : 'bg-gray-300'}`} />
+                  <div className="flex gap-1.5 md:gap-2 mb-3 md:mb-4">
+                    <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${index === 0 ? 'bg-green-500' : 'bg-gray-300'}`} />
+                    <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${index === 1 ? 'bg-green-500' : 'bg-gray-300'}`} />
+                    <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${index === 2 ? 'bg-green-500' : 'bg-gray-300'}`} />
+                    <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${index === 3 ? 'bg-green-500' : 'bg-gray-300'}`} />
                   </div>
 
                   {/* Title and Category */}
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="text-black text-lg md:text-xl font-semibold mb-1 group-hover:text-black/70 transition-colors">
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <div className="flex-1">
+                      <h3 className="text-black text-base md:text-xl font-semibold mb-1 group-hover:text-black/70 transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-gray-500 text-sm">
+                      <p className="text-gray-500 text-xs md:text-sm">
                         {project.tags.join(" • ")}
                       </p>
                     </div>
-                    <button className="text-gray-600 hover:text-black transition-colors text-sm font-medium uppercase tracking-wider">
+                    <button className="text-gray-600 hover:text-black transition-colors text-xs md:text-sm font-medium uppercase tracking-wider flex-shrink-0">
                       EXPLORE
                     </button>
                   </div>

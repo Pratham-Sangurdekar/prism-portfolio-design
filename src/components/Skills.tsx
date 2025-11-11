@@ -24,7 +24,7 @@ const Skills = () => {
           <h2 
             className="font-black leading-[0.9] mb-4"
             style={{
-              fontSize: 'clamp(48px, 10vw, 100px)',
+              fontSize: 'clamp(32px, 10vw, 100px)',
               letterSpacing: '-0.02em',
               color: '#1a1a1a',
             }}
@@ -36,16 +36,16 @@ const Skills = () => {
           </h2>
           <div className="flex justify-end">
             <p 
-              className="text-right max-w-sm text-xs md:text-sm"
+              className="text-right max-w-sm text-[10px] md:text-sm"
               style={{
                 color: '#1a1a1a',
                 letterSpacing: '0.01em',
                 lineHeight: '1.5',
               }}
             >
-              TAILORED SOLUTIONS DESIGNED TO
+              ACTIVELY WORKING ON EXPANDING MY SKILLSET 
               <br />
-              ELEVATE YOUR BRAND AND DRIVE RESULTS
+              TO STAY AHEAD IN THE EVER-EVOLVING TECH LANDSCAPE.
             </p>
           </div>
         </div>
