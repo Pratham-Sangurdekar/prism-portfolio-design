@@ -1,4 +1,4 @@
-<div dir="rtl"> # Pratham's Portfolio
+<p align="center"><b>Pratham's Portfolio</b></p>
 
 A modern, animated personal portfolio website showcasing projects, skills, and professional experience.
 
