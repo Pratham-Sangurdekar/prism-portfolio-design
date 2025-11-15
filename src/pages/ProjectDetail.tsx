@@ -104,53 +104,62 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#e8e8e8]">
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* White Header Bar - Mobile */}
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-white z-50 h-20">
+        {/* Navigation will appear here */}
+      </div>
+      
       <Navigation />
 
-      {/* Hero Section with Background Image */}
-      <section className="relative pt-24 md:pt-32 pb-32 md:pb-48 px-6 md:px-12 lg:px-20 overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section with Background Image - Dark theme for both mobile and desktop */}
+      <section className="relative pt-32 md:pt-48 pb-12 md:pb-20 overflow-hidden bg-black">
+        {/* Background Image with gradient overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover opacity-1000"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#000000]/50 to-[#000000]"></div>
+          {/* Gradient from black at bottom to transparent at top */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto">
-          {/* Back Button */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-12 lg:px-20">
+          {/* Back Button - hidden on mobile as it's in white bar */}
           <button
             onClick={() => navigate("/")}
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-black transition-colors mb-12 md:mb-16 group"
+            className="hidden md:inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-12 md:mb-16 group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-xs md:text-sm uppercase tracking-widest font-medium">Back to Home</span>
+            <span className="text-sm uppercase tracking-widest font-medium">Back to Home</span>
           </button>
 
           {/* Title */}
           <h1
-            className="font-black text-white leading-[0.85] tracking-tight mb-6 md:mb-8"
+            className="font-black text-white leading-[0.9] tracking-tight mb-6 md:mb-8"
             style={{
-              fontSize: "clamp(48px, 10vw, 120px)",
-              letterSpacing: "-0.02em",
+              fontSize: "clamp(32px, 10vw, 120px)",
+              letterSpacing: "-0.03em",
             }}
           >
             {project.title}
           </h1>
 
+          {/* Horizontal Line Separator */}
+          <div className="w-full h-[1px] bg-white/30 mb-6 md:mb-8"></div>
+
           {/* Description */}
-          <p className="text-white-600 text-lg md:text-2xl max-w-4xl leading-relaxed mb-8 md:mb-12">
+          <p className="text-white/90 text-xs md:text-lg max-w-3xl leading-relaxed mb-6 md:mb-10">
             {project.longDescription}
           </p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 md:gap-3">
             {project.tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-6 py-3 bg-gray-800 text-white text-sm uppercase tracking-wider rounded-full font-medium"
+                className="px-4 py-1.5 md:px-6 md:py-2.5 bg-white/20 text-white text-[10px] md:text-xs uppercase tracking-wider rounded-full font-medium backdrop-blur-sm"
               >
                 {tag}
               </span>
@@ -159,82 +168,86 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {/* Infinite Scrolling Gallery */}
-      <section className="relative py-12 md:py-20 bg-[#e8e8e8]">
-        <div className="mb-8 md:mb-12">
-          {/* Scroll Left */}
-          <div className="overflow-hidden">
-            <div className="flex gap-6 animate-scroll-left">
-              {/* Double the images for seamless loop */}
-              {[...project.gallery, ...project.gallery].map((image, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[400px] h-[280px] rounded-2xl overflow-hidden bg-white shadow-lg"
-                >
-                  <img
-                    src={image}
-                    alt={`${project.title} gallery ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+      {/* Infinite Scrolling Gallery in Black Rounded Container */}
+      <section className="relative -mt-6 md:-mt-8 md:py-0 bg-white">
+        <div className="px-4 md:px-12 lg:px-20">
+          <div className="max-w-[1400px] mx-auto bg-[#1a1a1a] rounded-3xl md:rounded-[50px] py-8 md:py-16 overflow-hidden">
+            <div className="mb-6 md:mb-10">
+              {/* Scroll Left */}
+              <div className="overflow-hidden">
+                <div className="flex gap-4 md:gap-6 animate-scroll-left">
+                  {/* Double the images for seamless loop */}
+                  {[...project.gallery, ...project.gallery].map((image, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-[280px] md:w-[450px] h-[200px] md:h-[320px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg"
+                    >
+                      <img
+                        src={image}
+                        alt={`${project.title} gallery ${index + 1}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div>
-          {/* Scroll Right */}
-          <div className="overflow-hidden">
-            <div className="flex gap-6 animate-scroll-right">
-              {/* Double the images for seamless loop */}
-              {[...project.gallery.reverse(), ...project.gallery].map((image, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[400px] h-[280px] rounded-2xl overflow-hidden bg-white shadow-lg"
-                >
-                  <img
-                    src={image}
-                    alt={`${project.title} gallery ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+            <div>
+              {/* Scroll Right */}
+              <div className="overflow-hidden">
+                <div className="flex gap-4 md:gap-6 animate-scroll-right">
+                  {/* Double the images for seamless loop */}
+                  {[...project.gallery.reverse(), ...project.gallery].map((image, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-[280px] md:w-[450px] h-[200px] md:h-[320px] rounded-xl md:rounded-2xl overflow-hidden shadow-lg"
+                    >
+                      <img
+                        src={image}
+                        alt={`${project.title} gallery ${index + 1}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Project Details */}
-      <section className="relative py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-[#e8e8e8]">
+      <section className="relative py-12 md:py-24 px-4 md:px-12 lg:px-20 bg-white">
         <div className="max-w-[1400px] mx-auto">
           {/* Info Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16 md:mb-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mb-12 md:mb-20">
             <div>
-              <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-2 font-medium">Role</h3>
-              <p className="text-black text-base md:text-lg font-semibold">{project.role}</p>
+              <h3 className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mb-2 font-medium">Role</h3>
+              <p className="text-black text-sm md:text-lg font-semibold">{project.role}</p>
             </div>
             <div>
-              <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-2 font-medium">Duration</h3>
-              <p className="text-black text-base md:text-lg font-semibold">{project.duration}</p>
+              <h3 className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mb-2 font-medium">Duration</h3>
+              <p className="text-black text-sm md:text-lg font-semibold">{project.duration}</p>
             </div>
             <div>
-              <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-2 font-medium">Category</h3>
-              <p className="text-black text-base md:text-lg font-semibold">{project.category}</p>
+              <h3 className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mb-2 font-medium">Category</h3>
+              <p className="text-black text-sm md:text-lg font-semibold">{project.category}</p>
             </div>
             <div>
-              <h3 className="text-gray-500 text-xs uppercase tracking-widest mb-2 font-medium">Year</h3>
-              <p className="text-black text-base md:text-lg font-semibold">2024</p>
+              <h3 className="text-gray-500 text-[10px] md:text-xs uppercase tracking-widest mb-2 font-medium">Year</h3>
+              <p className="text-black text-sm md:text-lg font-semibold">2024</p>
             </div>
           </div>
 
           {/* Technologies */}
-          <div className="mb-16 md:mb-20">
-            <h2 className="text-black text-2xl md:text-4xl font-bold mb-6 md:mb-8">Technologies</h2>
-            <div className="flex flex-wrap gap-3">
+          <div className="mb-12 md:mb-20">
+            <h2 className="text-black text-xl md:text-4xl font-bold mb-4 md:mb-8">Technologies</h2>
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {project.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-6 py-3 bg-white text-black text-sm md:text-base rounded-xl border-2 border-black font-medium hover:bg-black hover:text-white transition-all"
+                  className="px-4 py-2 md:px-6 md:py-3 bg-white text-black text-xs md:text-base rounded-lg md:rounded-xl border-2 border-black font-medium hover:bg-black hover:text-white transition-all"
                 >
                   {tech}
                 </span>
@@ -243,14 +256,14 @@ const ProjectDetail = () => {
           </div>
 
           {/* View More Projects */}
-          <div className="text-center pt-12 border-t-2 border-black/10">
+          <div className="text-center pt-8 md:pt-12 border-t-2 border-black/10">
             <button
               onClick={() => navigate("/#projects")}
               className="inline-flex items-center gap-3 text-black hover:text-gray-600 transition-colors group"
             >
-              <span className="text-sm uppercase tracking-widest font-bold">View More Projects</span>
+              <span className="text-xs md:text-sm uppercase tracking-widest font-bold">View More Projects</span>
               <ArrowLeft
-                size={18}
+                size={16}
                 className="rotate-180 group-hover:translate-x-1 transition-transform"
               />
             </button>
