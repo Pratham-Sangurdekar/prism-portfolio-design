@@ -1,7 +1,9 @@
+const resumeUrl = new URL('../assets/Pratham_Resume.pdf', import.meta.url).href;
+
 const Hero = () => {
   const handleResumeDownload = () => {
     const link = document.createElement('a');
-    link.href = '/src/assets/Pratham_Resume.pdf';
+    link.href = resumeUrl;
     link.download = 'Pratham_Sangurdekar_Resume.pdf';
     document.body.appendChild(link);
     link.click();
